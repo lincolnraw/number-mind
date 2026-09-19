@@ -7,7 +7,14 @@ void main(String[] args) {
 
     while (attempts < 5) {
         System.out.println("Digite um número entre 0 e 100:");
-        guessedNumber = reader.nextInt();
+        try {
+            guessedNumber = reader.nextInt();
+        } catch (Exception e) {
+            System.out.println("Entrada inválida! Digite apenas números.");
+            reader.nextLine();
+            continue;
+        }
+
         attempts++;
 
         if (guessedNumber == generatedNumber) {
